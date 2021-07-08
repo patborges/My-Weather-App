@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="weather-app">
+            <form class="search-form" id="search-form">
+                <div class="row">
+                    <div class="col-9">
+                        <input type="search" placeholder="Type a city..." autofocus="on" autocomplete="off"
+                            id="city-input" class="form-control shadow-sm">
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="Search" class="form-control btn btn-primary shadow-sm">
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-success w-100" id="current-location-button">
+                            Current
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <h1 id="city">
+            </h1>
+            <ul>
+                <li id="date">
+                    Monday 12:00
+                </li>
+                <li id="condition">
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col-6">
+                    <div class="clearfix">
+                        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy icon"
+                            class="weather-icon float-left">
+                        <div class="float-left">
+                            <span class="temperature" id="temperature"></span>ºC
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <ul>
+                        <li id="humidity">
+                        </li>
+                        <li id="wind">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="src/index.js">
+    </script>
+</body>
+
+</html>
