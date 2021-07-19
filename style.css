@@ -1,6 +1,13 @@
 body {
   font-family: 'PT Sans',
   sans-serif;
+  background-color: rgb(140, 217, 228);
+}
+
+.btn-primary {
+  color: rgb(140, 217, 228);
+  background-color: #ebf0f7;
+  border-color: #ebf0f7;
 }
 
 h1 {
@@ -37,8 +44,9 @@ li:first-letter {
 }
 
 .weather-app {
+  background-color: #ebf0f7;
   padding: 20px;
-  border: 1px solid #dadde1;
+  border: 1px solid #ebf0f7;
   border-radius: 10px;
 }
 
@@ -91,4 +99,8 @@ li:first-letter {
 
 .weather-forecast-temperatures {
   font-size: 13px;
+}
+
+footer {
+  text-align: center;
 }
