@@ -101,6 +101,9 @@ li:first-letter {
   font-size: 13px;
 }
 
+.footer {
+  text-align: center;
+
 footer {
-  margin: 0 auto;
+  display: block;
 }
