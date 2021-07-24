@@ -10,6 +10,12 @@ body {
   border-color: #ebf0f7;
 }
 
+.current-location-button {
+  color: rgb(140, 217, 228);
+  background-color: #ebf0f7;
+  border-color: #ebf0f7;
+}
+
 h1 {
   color: #0a0a0a;
   font-size: 24px;
