@@ -8,12 +8,14 @@ body {
   color: #ebf0f7;
   background-color: rgb(140, 217, 228);
   border-color: rgb(140, 217, 228);
+  margin: 1px;
 }
 
 .current-location-button {
   color: #ebf0f7;
   background-color: rgb(140, 217, 228);
   border-color: rgb(140, 217, 228);
+  margin: 1px;
 }
 
 h1 {
@@ -105,8 +107,4 @@ li:first-letter {
 
 .weather-forecast-temperatures {
   font-size: 13px;
-}
-
-.footer {
-  text-align: center;
 }
