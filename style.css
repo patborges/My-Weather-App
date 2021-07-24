@@ -18,6 +18,10 @@ body {
   margin: 2px;
 }
 
+.btn:hover {
+  background-color: rgb(50, 96, 221);
+}
+
 h1 {
   color: #0a0a0a;
   font-size: 24px;
