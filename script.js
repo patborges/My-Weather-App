@@ -89,14 +89,14 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
-function convert(units) {
+function convert(degree) {
   var x;
-  if (units == "C") {
-    x = document.getElementById("celsius-link").value * 9 / 5 + 32;
-    document.getElementById("fahrenheit-link").value = Math.round(x);
+  if (degree == "C") {
+    x = document.getElementById("c").value * 9 / 5 + 32;
+    document.getElementById("f").value = Math.round(x);
   } else {
-    x = (document.getElementById("fahrenheit-link").value -32) * 5 / 9;
-    document.getElementById("celsius-link").value = Math.round(x);
+    x = (document.getElementById("f").value -32) * 5 / 9;
+    document.getElementById("c").value = Math.round(x);
   }
 }
 
