@@ -89,6 +89,17 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
+function convert(degree) {
+  var x;
+  if (degree == "C") {
+    x = document.getElementById("celsius-link").value * 9 / 5 + 32;
+    document.getElementById("fahrenheit-link").value = Math.round(x);
+  } else {
+    x = (document.getElementById("fahrenheit-link").value -32) * 5 / 9;
+    document.getElementById("celsius-link").value = Math.round(x);
+  }
+}
+
 function search(city) {
   let apiKey = "388afacfb92bd4f649accab582225b09";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
