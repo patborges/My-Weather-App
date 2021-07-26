@@ -89,9 +89,9 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
-function convert(degree) {
+function convert(units) {
   var x;
-  if (degree == "C") {
+  if (units == "C") {
     x = document.getElementById("celsius-link").value * 9 / 5 + 32;
     document.getElementById("fahrenheit-link").value = Math.round(x);
   } else {
