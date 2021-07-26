@@ -30,53 +30,78 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function searchCity(city) {
-    let apiKey = "388afacfb92bd4f649accab582225b09";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showTemperature);
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML = forecastHTML + 
+      `
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <img
+          src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> ${Math.round(forecastDay.temp.max)}° </span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(forecastDay.temp.min)}° </span>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
-function city(event) {
-    event.preventDefault();
-    let city = document.querySelector("#city-input").value;
-    searchCity(city);
+function getForecast(coordinates) {
+  let apiKey = "388afacfb92bd4f649accab582225b09";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
-function showTemperature(response) {
-    document.querySelector("#city").innerHTML = response.data.name;
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
 
-    document.querySelector("#temperature").innerHTML = Math.round(
-        response.data.main.temp
-    );
+  celsiusTemperature = response.data.main.temp;
 
-    let humidity = response.data.main.humidity;
-    let currentHumidity = document.querySelector("#humidity");
-    currentHumidity.innerHTML = `Humidity: ${humidity}%`;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
-    let wind = Math.round(response.data.wind.speed);
-    let currentWind = document.querySelector("#wind");
-    currentWind.innerHTML = `Wind: ${wind}km/h`;
-
-    document.querySelector("#condition").innerHTML =
-        response.data.weather[0].main;
+  getForecast(response.data.coord);
 }
 
-function searchLocation(position) {
-    let apiKey = "388afacfb92bd4f649accab582225b09";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(showTemperature);
+function search(city) {
+  let apiKey = "388afacfb92bd4f649accab582225b09";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
 }
 
-function getCurrentLocation(event) {
-    event.preventDefault();
-    navigator.geolocation.getCurrentPosition(searchLocation);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
 }
 
-let search = document.querySelector("#search-form");
-search.addEventListener("submit", city);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
-
-searchCity("Lisbon");
+search("Lisbon");
