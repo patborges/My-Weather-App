@@ -4,19 +4,20 @@ body {
   background-image: url("weather-background.jpg");
 }
 
-.btn-primary {
+.btn-primary,
+.current-location-button {
   color: #ebf0f7;
-  background-color: rgb(140, 217, 228);
+  background-color: #438AC5; /* rgb(140, 217, 228) */
   border-color: rgb(140, 217, 228);
   margin: 2px;
 }
 
-.current-location-button {
+/* .current-location-button {
   color: #ebf0f7;
   background-color: rgb(140, 217, 228);
   border-color: rgb(140, 217, 228);
   margin: 2px;
-}
+} */
 
 .btn:hover {
   background-color: rgb(50, 96, 221);
@@ -57,7 +58,7 @@ li:first-letter {
 }
 
 .weather-app {
-  background-color: #ebf0f7;
+  background-color: #abc9f0; /* #ebf0f7; */
   padding: 20px;
   border: 1px solid #ebf0f7;
   border-radius: 10px;
