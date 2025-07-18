@@ -4,7 +4,7 @@
 - Built with HTML, CSS, and JavaScript, which uses the OpenWeatherMap API to fetch weather data.
 
 
-<img src="img.png" alt="Screenshot of the Weather App" width="500" height="300">
+<img src="Img/img.png" alt="Screenshot of the Weather App" width="500" height="300">
 
 
 ### Features
