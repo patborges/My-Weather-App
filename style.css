@@ -1,48 +1,52 @@
+
+:root {
+  --color_solitude: #ebf0f7; /* rgb(235, 240, 247) */
+  --color_gray: rgb(135, 135, 135);
+  --color_light_teal: rgb(140, 217, 228);
+  --color_blue: #438AC5; /* rgb(67, 138, 197) */
+  --color_light_royal_blue: rgb(50, 96, 221);
+  --color_gray13: rgb(33, 33, 33);
+  --color_vampire_black: #0a0a0a; /* rgb(10, 10, 10) */
+  --color_black: #000; /* rgb(0, 0, 0) */
+}
+
+/* General Styles */
+
 body {
-  font-family: 'PT Sans',
-  sans-serif;
+  font-family: 'PT Sans', sans-serif;
   background-image: url("weather-background.jpg");
 }
 
 .btn-primary,
 .current-location-button {
-  color: #ebf0f7;
-  background-color: #438AC5; /* rgb(140, 217, 228) */
-  border-color: rgb(140, 217, 228);
+  color: var(--color_solitude);
+  background-color: var(--color_blue);
+  border-color: var(--color_light_teal);
   margin: 2px;
 }
 
-/* .current-location-button {
-  color: #ebf0f7;
-  background-color: rgb(140, 217, 228);
-  border-color: rgb(140, 217, 228);
-  margin: 2px;
-} */
-
 .btn:hover {
-  background-color: rgb(50, 96, 221);
-  color:#ebf0f7; 
+  background-color: var(--color_light_royal_blue);
+  color: var(--color_solitude);
 }
 
 h1 {
-  color: #0a0a0a;
+  color: var(--color_vampire_black);
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
   margin-bottom: 0;
 }
 
-ul {
+ul,
+li {
   margin: 0;
   padding: 0;
 }
 
 li {
   list-style: none;
-  margin: 0;
-  padding: 0;
-
-  color: rgb(135, 135, 135);
+  color: var(--color_gray);
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -52,15 +56,30 @@ li:first-letter {
   text-transform: capitalize;
 }
 
+footer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+footer a {
+  color: var(--color_black);
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Weather App Styles */
+
 .weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
 }
 
 .weather-app {
-  background-color: #ebf0f7; 
+  background-color: var(--color_solitude);
   padding: 20px;
-  border: 1px solid #ebf0f7;
+  border: 1px solid var(--color_solitude);
   border-radius: 10px;
 }
 
@@ -75,7 +94,7 @@ li:first-letter {
 }
 
 .weather-temperature strong {
-  color: rgb(33, 33, 33);
+  color: var(--color_gray13);
   font-size: 64px;
   line-height: 1;
   font-weight: 400;
@@ -88,7 +107,7 @@ li:first-letter {
 }
 
 .weather-temperature .active {
-  color: rgb(33, 33, 33);
+  color: var(--color_gray13);
   cursor: default;
 }
 
@@ -99,27 +118,18 @@ li:first-letter {
 .weather-forecast {
   margin-top: 20px;
   text-align: center;
-  color: #000;
+  color: var(--color_black);
 }
 
 .weather-forecast-date {
   font-size: 16px;
-  opacity: 0.5;
 }
 
+.weather-forecast-date,
 .weather-forecast-temperature-min {
   opacity: 0.5;
 }
 
 .weather-forecast-temperatures {
   font-size: 13px;
-}
-
-footer {
-  text-align: center;
-  margin-top: 10px;
-}
-
-footer a {
-  color: black;
 }
