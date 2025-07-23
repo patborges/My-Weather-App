@@ -121,6 +121,11 @@ footer a:hover {
   color: var(--color_black);
 }
 
+.weather-forecast img {
+  width: 40px;
+  height: 40px;
+}
+
 .weather-forecast-date {
   font-size: 16px;
 }
