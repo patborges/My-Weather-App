@@ -14,7 +14,8 @@
 
 body {
   font-family: 'PT Sans', sans-serif;
-  background-image: url("weather-background.jpg");
+  background-image: url("Img/weather-background.jpg");
+  background-size: cover;
 }
 
 .btn-primary,
